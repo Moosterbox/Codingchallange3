@@ -1,0 +1,49 @@
+let year = 2024
+var version = 1.1
+var dwnl = 1010
+var hiRec = 0
+var goodRec = 0
+var midRec = 0
+var badRec = 0
+var userRec : String
+var userReviews = [4.0,4.5,5.0,4.9,4.6,4.7,3.9,5.0]
+var userAvgReview: Double = 0.0
+
+for item in userReviews{
+    if item >= 4.5 {
+        hiRec += 1
+    } else if item >= 3.5{
+        goodRec += 1
+    } else if item >= 2.5{
+        midRec += 1
+    } else if item >= 0.1{
+        badRec += 1
+    }
+}
+
+
+for item in userReviews{
+    userAvgReview += item
+}
+userAvgReview /= Double(userReviews.count)
+
+switch userAvgReview{
+    case 4.5...5.0: userRec = "Highly Recomended"
+    case 3.5...4.4: userRec = "Recommended"
+    case 2.5...3.4: userRec = "Moderatly Recommended"
+    case 0.1...2.4: userRec = "Not Recommended"
+    default: userRec = "No Ratings yet."
+}
+
+print("Cool app")
+print("Matthew Robinson")
+print("Originally released:\(year)")
+print("Version:\(version)")
+print("Downloads:\(dwnl)")
+print("User Ratings:\(userAvgReview)")
+print(userRec)
+print("Excellent Reviews:\(hiRec)")
+print("Good Reviews: \(goodRec)")
+print("Avrage Reviews: \(midRec)")
+print("Bad Reviews: \(badRec)")
+print("Total Reviews: \(userReviews.count)")
